@@ -4,7 +4,7 @@
 #
 Name     : tdb
 Version  : 1.3.16
-Release  : 7
+Release  : 8
 URL      : https://www.samba.org/ftp/tdb/tdb-1.3.16.tar.gz
 Source0  : https://www.samba.org/ftp/tdb/tdb-1.3.16.tar.gz
 Summary  : A trivial database
@@ -91,12 +91,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535903688
+export SOURCE_DATE_EPOCH=1535910194
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1535903688
+export SOURCE_DATE_EPOCH=1535910194
 rm -rf %{buildroot}
 %make_install
 
@@ -118,7 +118,8 @@ rm -rf %{buildroot}
 
 %files legacypython
 %defattr(-,root,root,-)
-/usr/lib/python2*/*
+%exclude /usr/lib/python2.7/site-packages/_tdb_text.py
+%exclude /usr/lib/python2.7/site-packages/tdb.so
 
 %files lib
 %defattr(-,root,root,-)
