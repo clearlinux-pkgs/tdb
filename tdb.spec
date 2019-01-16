@@ -4,7 +4,7 @@
 #
 Name     : tdb
 Version  : 1.3.17
-Release  : 10
+Release  : 11
 URL      : https://www.samba.org/ftp/tdb/tdb-1.3.17.tar.gz
 Source0  : https://www.samba.org/ftp/tdb/tdb-1.3.17.tar.gz
 Summary  : A trivial database
@@ -13,13 +13,14 @@ License  : LGPL-3.0+
 Requires: tdb-bin = %{version}-%{release}
 Requires: tdb-lib = %{version}-%{release}
 Requires: tdb-man = %{version}-%{release}
+Requires: tdb-python = %{version}-%{release}
+Requires: tdb-python3 = %{version}-%{release}
 BuildRequires : docbook-xml
 BuildRequires : libxml2
 BuildRequires : libxml2-dev
 BuildRequires : libxslt
 BuildRequires : libxslt-dev
-BuildRequires : python-core
-BuildRequires : python-dev
+BuildRequires : python3-dev
 Patch1: 0001-add-mock-disable-static-option.patch
 Patch2: 0002_fix_finding_waf.patch
 
@@ -63,6 +64,24 @@ Group: Default
 man components for the tdb package.
 
 
+%package python
+Summary: python components for the tdb package.
+Group: Default
+Requires: tdb-python3 = %{version}-%{release}
+
+%description python
+python components for the tdb package.
+
+
+%package python3
+Summary: python3 components for the tdb package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the tdb package.
+
+
 %prep
 %setup -q -n tdb-1.3.17
 %patch1 -p1
@@ -73,12 +92,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547675713
+export SOURCE_DATE_EPOCH=1547675885
 %configure --disable-static --disable-rpath --disable-rpath-install
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1547675713
+export SOURCE_DATE_EPOCH=1547675885
 rm -rf %{buildroot}
 %make_install
 
@@ -109,3 +128,10 @@ rm -rf %{buildroot}
 /usr/share/man/man8/tdbdump.8
 /usr/share/man/man8/tdbrestore.8
 /usr/share/man/man8/tdbtool.8
+
+%files python
+%defattr(-,root,root,-)
+
+%files python3
+%defattr(-,root,root,-)
+/usr/lib/python3*/*

@@ -1,9 +1,8 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-python-core
 docbook-xml
 libxslt
 libxslt-dev
 libxml2
 libxml2-dev
-python-dev
+python3-dev
