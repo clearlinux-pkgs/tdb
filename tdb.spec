@@ -4,7 +4,7 @@
 #
 Name     : tdb
 Version  : 1.4.2
-Release  : 16
+Release  : 17
 URL      : https://www.samba.org/ftp/tdb/tdb-1.4.2.tar.gz
 Source0  : https://www.samba.org/ftp/tdb/tdb-1.4.2.tar.gz
 Summary  : A Trivial Database similar to GDBM but allows simultaneous commits
@@ -95,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571005613
+export SOURCE_DATE_EPOCH=1571006142
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
@@ -106,7 +106,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1571005613
+export SOURCE_DATE_EPOCH=1571006142
 rm -rf %{buildroot}
 %make_install
 ## Remove excluded files
