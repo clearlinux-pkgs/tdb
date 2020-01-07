@@ -4,7 +4,7 @@
 #
 Name     : tdb
 Version  : 1.4.2
-Release  : 18
+Release  : 19
 URL      : https://www.samba.org/ftp/tdb/tdb-1.4.2.tar.gz
 Source0  : https://www.samba.org/ftp/tdb/tdb-1.4.2.tar.gz
 Summary  : A Trivial Database similar to GDBM but allows simultaneous commits
