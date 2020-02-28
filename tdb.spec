@@ -4,10 +4,10 @@
 #
 Name     : tdb
 Version  : 1.4.3
-Release  : 20
+Release  : 21
 URL      : https://www.samba.org/ftp/tdb/tdb-1.4.3.tar.gz
 Source0  : https://www.samba.org/ftp/tdb/tdb-1.4.3.tar.gz
-Summary  : A trivial database
+Summary  : A Trivial Database similar to GDBM but allows simultaneous commits
 Group    : Development/Tools
 License  : LGPL-3.0+
 Requires: tdb-bin = %{version}-%{release}
@@ -24,8 +24,12 @@ BuildRequires : python3-dev
 Patch1: 0001-add-mock-disable-static-option.patch
 
 %description
-See http://code.google.com/p/waf/ for more information on waf
-You can get a svn copy of the upstream source with:
+This subsystem ensures that we can always use a certain core set of
+functions and types, that are either provided by the OS or by replacement
+functions / definitions in this subsystem. The aim is to try to stick
+to POSIX functions in here as much as possible. Convenience functions
+that are available on no platform at all belong in other subsystems
+(such as LIBUTIL).
 
 %package bin
 Summary: bin components for the tdb package.
@@ -41,6 +45,7 @@ Group: Development
 Requires: tdb-lib = %{version}-%{release}
 Requires: tdb-bin = %{version}-%{release}
 Provides: tdb-devel = %{version}-%{release}
+Requires: tdb = %{version}-%{release}
 Requires: tdb = %{version}-%{release}
 
 %description dev
@@ -91,7 +96,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578445627
+export SOURCE_DATE_EPOCH=1582913378
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -101,7 +107,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1578445627
+export SOURCE_DATE_EPOCH=1582913378
 rm -rf %{buildroot}
 %make_install
 ## Remove excluded files
