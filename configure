@@ -1,1 +1,2 @@
---disable-rpath --disable-rpath-install
+--disable-rpath
+--disable-rpath-install
