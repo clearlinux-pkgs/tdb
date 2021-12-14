@@ -4,7 +4,7 @@
 #
 Name     : tdb
 Version  : 1.4.5
-Release  : 35
+Release  : 36
 URL      : https://www.samba.org/ftp/tdb/tdb-1.4.5.tar.gz
 Source0  : https://www.samba.org/ftp/tdb/tdb-1.4.5.tar.gz
 Summary  : A trivial database
