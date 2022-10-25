@@ -4,7 +4,7 @@
 #
 Name     : tdb
 Version  : 1.4.7
-Release  : 38
+Release  : 39
 URL      : https://www.samba.org/ftp/tdb/tdb-1.4.7.tar.gz
 Source0  : https://www.samba.org/ftp/tdb/tdb-1.4.7.tar.gz
 Summary  : A trivial database
