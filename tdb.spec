@@ -4,7 +4,7 @@
 #
 Name     : tdb
 Version  : 1.4.7
-Release  : 39
+Release  : 40
 URL      : https://www.samba.org/ftp/tdb/tdb-1.4.7.tar.gz
 Source0  : https://www.samba.org/ftp/tdb/tdb-1.4.7.tar.gz
 Summary  : A trivial database
@@ -91,7 +91,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1663255300
+export SOURCE_DATE_EPOCH=1666717630
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -102,7 +102,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1663255300
+export SOURCE_DATE_EPOCH=1666717630
 rm -rf %{buildroot}
 %make_install
 
